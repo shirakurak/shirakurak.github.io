@@ -1,10 +1,16 @@
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    background(31, 127, 255);
+  createCanvas(windowWidth, windowHeight, WEBGL);
 }
 
 function draw() {
-    noStroke();
-    fill(255, 255, 0);
-    circle(width / 2, height / 2, height / 2);
+  background('#222222');
+  for (var y = 0; y <= 1000; y = y + 500) {
+    for (var x = 0; x <= 1000; x = x + 500) {
+      noFill();
+      stroke('#FFFFFF');
+      rotateX(frameCount * 0.001);
+      rotateY(frameCount * 0.001);
+      box(200, 200, 200);
+    }
+  }
 }
