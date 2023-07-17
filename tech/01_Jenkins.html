@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>tech</title>
+</head>
+<body>
+  <h1>Jenkinsをインストールしてlocalhostで開始しようとすると失敗する。</h1>
+
+  <p>原因調査</p>
+  <p>C:\Program Files\Jenkins\jenkins.err.logにエラー内容がでている</p>
+  <p>重大: Running with Java class version 58 which is not in the list of supported versions: [52, 55]. Run with the --enable-future-java flag to enable such behavior. See https://jenkins.io/redirect/java-support/
+  Jenkins requires Java versions [8, 11] but you are running with Java 14 from C:\Program Files\Java\jdk-14.0.1
+  java.lang.UnsupportedClassVersionError: 58.0</p>
+  <p>Jenkinsは実行環境としてJavaが必要であるが、バージョンは8と11のどちらかであることが必要らしい。 Java14を参照していてエラー。</p>
+  <p>対応方法</p>
+  <p>jenkins.xmlを修正する（C:\Program Files\Jenkins配下にある）。</p>
+  <p>※インストールした際の画面に記載あり。</p>
+  <p>serviceタグ内のexecutableタグに、Java11のjdkのパスを設定するよう修正すればOK。</p>
+</body>
+</html>
